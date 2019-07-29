@@ -17,7 +17,7 @@ function fail {
     echo "Shutting down services..."
     docker-compose $docker_compose_opts down
 
-    echo "Task failed"
+    echo "Error: Task failed"
     exit 1
 }
 
@@ -35,3 +35,29 @@ docker run --rm --env "DEPLOYMENT_MOCK_URL=http://apimock:8080" --network "${pro
 
 echo "Shutting down services..."
 docker-compose $docker_compose_opts down
+
+function demo {
+    result=0
+
+    while true; do
+        result=1
+        break
+    done
+
+    echo $result
+}
+
+function demo_duplicate {
+    result=0
+ 
+    while true; do
+        result=1
+        break
+    done
+
+    echo $result
+
+}
+
+demo
+demo_duplicate
